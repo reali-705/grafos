@@ -1,0 +1,46 @@
+\documentclass[12pt]{article}
+
+% setup configura os pacotes e os metadados
+\input{core/setup}
+
+\begin{document}
+
+    \input{core/header}
+
+    O problema do Isomorfismo de Grafos (GI) representa um dos enigmas mais persistentes da ciência da computação,
+    habitando uma zona de incerteza entre os problemas de classe P e os NP-Completos.
+    O desafio central consiste em determinar se dois grafos com aparências distintas possuem, de fato, a mesma estrutura de conectividade subjacente.
+    Durante mais de 30 anos, os algoritmos mais eficientes operavam em tempo subexponencial,
+    um patamar que limitava significativamente a escalabilidade de soluções práticas para o problema.
+
+    Em 2015, László Babai revolucionou a área ao propor um algoritmo que soluciona o GI em tempo quase-polinomial,
+    aproximando-o consideravelmente da classe de problemas considerados "fáceis".
+    O método emprega uma técnica de refinamento de cores (ou pintura de vértices), onde os nós são diferenciados com base em suas vizinhanças e propriedades de conectividade.
+    O obstáculo técnico mais severo para essa abordagem são os Grafos de Johnson, cujas propriedades de supersimetria dificultam a identificação de discrepâncias,
+    uma vez que todos os vértices parecem idênticos sob o esquema de pintura inicial.
+    Babai demonstrou que, ao isolar e tratar especificamente esses casos, era possível contornar a simetria sem elevar o custo computacional a níveis proibitivos.
+
+    O rigor da revisão científica foi evidenciado em 2017, quando o matemático Harald Helfgott identificou uma inconsistência no módulo "Split-or-Johnson" do algoritmo.
+    O erro residia em uma recursão bifurcada que permitia o crescimento descontrolado de erros de aproximação, prejudicando a precisão do refinamento de cores em instâncias complexas.
+    Ao substituir a bifurcação por uma chamada recursiva simplificada, Babai corrigiu a falha e validou o desempenho quase-polinomial,
+    provando que o erro era uma falha de lógica modular e não um colapso do conceito fundamental.
+
+    A transição do tempo subexponencial para o quase-polinomial representa um avanço estrutural na compreensão da complexidade algorítmica.
+    Embora o GI ainda não tenha sido oficialmente inserido na classe P, o trabalho de Babai demonstra que problemas aparentemente intratáveis podem sucumbir a novas formas de redução de simetria.
+    Essa descoberta não apenas impacta a teoria pura, mas também sinaliza uma evolução tecnológica capaz de transformar o processamento de redes complexas em diversas áreas da ciência e da engenharia.
+
+    \divisoria
+    
+    \begingroup\raggedright
+        \begin{thebibliography}{9}
+            \bibitem{quanta2015}
+            KLARREICH, Erica. \textbf{Landmark Algorithm Breaks 30-Year Impasse}. Quanta Magazine, 14 dez. 2015.
+            Disponível em: \url{https://www.quantamagazine.org/algorithm-solves-graph-isomorphism-in-record-time-20151214/}.
+
+            \bibitem{quanta2017}
+            KLARREICH, Erica. \textbf{Graph Isomorphism Vanquished --- Again}. Quanta Magazine, 14 jan. 2017.
+            Disponível em: \url{https://www.quantamagazine.org/graph-isomorphism-vanquished-again-20170114/}.
+        \end{thebibliography}
+    \endgroup
+
+\end{document}
