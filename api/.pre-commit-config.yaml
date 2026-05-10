@@ -5,8 +5,3 @@ repos:
       - id: ruff
         args: [--fix]
       - id: ruff-format
-
-  - repo: https://github.com/microsoft/pyright
-    rev: 1.1.409
-    hooks:
-      - id: pyright
