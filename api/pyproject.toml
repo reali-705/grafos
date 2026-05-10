@@ -1,0 +1,51 @@
+[project]
+name = "graph-api"
+version = "0.1.0"
+description = "API de Gerenciamento de Grafos"
+readme = "README.md"
+authors = [{ name = "reali-705", email = "alessandro.reali.3110@gmail.com" }]
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.136.1",
+    "networkx>=3.6.1",
+    "pyvis>=0.3.2",
+    "sqlmodel>=0.0.38",
+    "uvicorn>=0.46.0",
+]
+
+
+[build-system]
+requires = ["uv_build>=0.10.11,<0.11.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.6.0",
+    "pyright>=1.1.409",
+    "pytest>=9.0.3",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.15.12",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+src = ["graph_api", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N"]
+ignore = ["E501"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+# Configurar tags
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=graph_api --cov-report=html --cov-report=term-missing"
+
+[tool.pyright]
+typeCheckingMode = "strict"
+include = ["graph_api", "tests"]
+exclude = [".venv", "dist", "build", "__pycache__", "**/node_modules", "**/.*"]
