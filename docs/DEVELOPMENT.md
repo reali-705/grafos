@@ -164,12 +164,12 @@ Crie `.vscode/launch.json`:
 
 | Pacote | Versão | Propósito |
 | --- | --- | --- |
-| FastAPI | ^0.104 | Framework Web |
-| Uvicorn | ^0.24 | ASGI Server |
-| SQLModel | ^0.0.14 | ORM + Schema |
-| NetworkX | ^3.2 | Validação de Grafos |
-| PyVis | ^0.3.2 | Visualização |
-| Pytest | ^7.4 | Testes |
+| FastAPI | >=0.136 | Framework Web |
+| Uvicorn | >=0.46 | ASGI Server |
+| SQLModel | >=0.0.38 | ORM + Schema |
+| NetworkX | >=3.6 | Validação de Grafos |
+| PyVis | >=0.3.2 | Visualização |
+| Pytest | >=9.0 | Testes |
 
 ## 🚨 Problemas Comuns
 
@@ -180,14 +180,6 @@ Certifique-se de que você rodou o comando de dentro de `api/`:
 ```bash
 cd api
 uvicorn graph_api.main:app --reload
-```
-
-### "sqlite3.OperationalError: no such table: vertex"
-
-O banco não foi inicializado. FastAPI deve criar automaticamente na primeira requisição, mas se falhar:
-
-```bash
-python -c "from graph_api.database import init_db; init_db()"
 ```
 
 ### Porta 8000 já em uso

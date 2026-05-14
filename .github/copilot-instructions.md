@@ -46,30 +46,29 @@ Construir uma **API escalável de Gerenciamento de Grafos**, evoluindo de um pro
 
 ```bash
 api/
-├── graph_api/
-│   ├── core/
-│   │   ├── __init__.py
-│   │   ├── graph_operations.py      # Lógica de grafos
-│   │   ├── implementations/
-│   │   │   ├── adjacency_matrix.py
-│   │   │   ├── adjacency_list.py
-│   │   │   └── connectivity.py
-│   │   └── validators.py             # Validações matemáticas
-│   ├── models/
-│   │   ├── __init__.py
-│   │   ├── vertex.py
-│   │   ├── edge.py
-│   │   └── graph.py
-│   ├── routes/
-│   │   ├── __init__.py
-│   │   ├── vertices.py
-│   │   ├── edges.py
-│   │   ├── graphs.py
-│   │   └── operations.py
-│   ├── database/
-│   │   ├── __init__.py
-│   │   └── db.py                    # Configuração SQLite
-│   └── main.py                      # Entrada da aplicação
+├── src/
+│   └── graph_api/
+│       ├── core/
+│       │   ├── __init__.py
+│       │   ├── graph_operations.py      # Lógica de grafos
+│       │   ├── implementations/
+│       │   │   ├── adjacency_matrix.py
+│       │   │   ├── adjacency_list.py
+│       │   │   └── connectivity.py
+│       │   └── validators.py             # Validações matemáticas
+│       ├── models/
+│       │   ├── __init__.py
+│       │   ├── vertex.py
+│       │   ├── edge.py
+│       │   └── graph.py
+│       ├── routes/
+│       │   ├── __init__.py
+│       │   ├── vertices.py
+│       │   ├── edges.py
+│       │   ├── graphs.py
+│       │   └── operations.py
+│       ├── database.py                    # Configuração SQLite
+│       └── main.py                      # Entrada da aplicação
 ├── tests/
 │   ├── __init__.py
 │   ├── test_models.py

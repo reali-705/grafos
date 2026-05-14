@@ -13,7 +13,10 @@ DATABASE_PATH = DATABASE_DIR / "graph.db"
 DATABASE_URL = f"sqlite:///{DATABASE_PATH}"
 
 engine = create_engine(
-    DATABASE_URL, echo=True, connect_args={"check_same_thread": False}
+    DATABASE_URL,
+    # Habilita o log de todas as consultas SQL para depuração. Remova ou defina como False em produção.
+    echo=True,
+    connect_args={"check_same_thread": False},
 )
 
 

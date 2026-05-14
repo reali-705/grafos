@@ -43,7 +43,6 @@ indent-style = "space"
 # Configurar tags
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "--cov=graph_api --cov-report=html --cov-report=term-missing"
 
 [tool.pyright]
 typeCheckingMode = "strict"
