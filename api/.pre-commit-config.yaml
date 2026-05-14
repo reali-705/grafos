@@ -13,5 +13,5 @@ repos:
         entry: pyright
         language: node
         types: [python]
-        additional_dependencies: ["pyright"]
+        additional_dependencies: ["pyright@1.1.407"]
         pass_filenames: false

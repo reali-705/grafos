@@ -1,5 +1,7 @@
 # 📋 Copilot Instructions: Projeto API de Grafos
 
+Utilize o idioma português para todas as interações. Siga as diretrizes abaixo para garantir que o desenvolvimento da API de Grafos seja consistente, escalável e alinhado com os objetivos do projeto.
+
 ## 🎯 Objetivo Principal
 
 Construir uma **API escalável de Gerenciamento de Grafos**, evoluindo de um protótipo acadêmico (V1) para uma solução de produção (V3+). O projeto começa com validação de conceitos para a prova de amanhã, e escala gradualmente integrando Rust, PostgreSQL e React.
@@ -44,7 +46,7 @@ Construir uma **API escalável de Gerenciamento de Grafos**, evoluindo de um pro
 
 ```bash
 api/
-├── app/
+├── graph_api/
 │   ├── core/
 │   │   ├── __init__.py
 │   │   ├── graph_operations.py      # Lógica de grafos
@@ -173,7 +175,7 @@ api/
 
 ---
 
-## 📊 Organizaç ão no GitHub
+## 📊 Organização no GitHub
 
 **Milestones:**
 

@@ -30,7 +30,7 @@ dev = [
 [tool.ruff]
 line-length = 88
 target-version = "py312"
-src = ["graph_api", "tests"]
+src = ["src"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP", "N"]
@@ -47,5 +47,5 @@ addopts = "--cov=graph_api --cov-report=html --cov-report=term-missing"
 
 [tool.pyright]
 typeCheckingMode = "strict"
-include = ["graph_api", "tests"]
+include = ["src"]
 exclude = [".venv", "dist", "build", "__pycache__", "**/node_modules", "**/.*"]

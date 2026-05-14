@@ -18,20 +18,12 @@ Este documento descreve como configurar o ambiente de desenvolvimento e rodar o 
 ```bash
 git clone https://github.com/reali-705/grafos.git
 cd grafos
+cd api
 ```
 
-### 2. Criar ambiente virtual com uv
+### 2. Instalar dependências
 
-```bash
-uv venv
-```
-
-Ativar:
-
-- **Windows:** `.venv\Scripts\activate.ps1`
-- **Linux/Mac:** `source .venv/bin/activate`
-
-### 3. Instalar dependências
+Como o projeto usa `uv`, ele já cria um ambiente virtual isolado. Use o comando abaixo para instalar as dependências:
 
 ```bash
 # Instalação básica
@@ -41,13 +33,12 @@ uv install -e .
 uv install -e .[dev]
 ```
 
-### 4. Rodar a API
+### 3. Rodar a API
 
-Deve entrar em `api/`
+Deve estar em `api/`
 
 ```bash
-cd api
-uvicorn app.main:app --reload
+uvicorn graph_api.main:app --reload
 ```
 
 A API estará disponível em `http://localhost:8000`
@@ -66,7 +57,7 @@ pytest tests/ -v
 ### Rodar testes com cobertura
 
 ```bash
-pytest tests/ --cov=app --cov-report=html
+pytest tests/ --cov=graph_api --cov-report=html
 ```
 
 Abra `htmlcov/index.html` para visualizar cobertura.
@@ -79,7 +70,7 @@ pytest tests/test_models.py::test_vertex_creation -v
 
 ## 📊 Estrutura de Banco de Dados (V1)
 
-SQLite é armazenado em `api/app.db` (ignorado no git).
+SQLite é armazenado em `api/data/graph.db` (ignorado no git).
 
 **Tabelas:**
 
@@ -89,7 +80,7 @@ SQLite é armazenado em `api/app.db` (ignorado no git).
 Para inspecionar:
 
 ```bash
-sqlite3 app.db
+sqlite3 api/data/graph.db
 sqlite> .tables
 sqlite> SELECT * FROM vertex;
 ```
@@ -144,7 +135,7 @@ docker-compose up
 ### Log detalhado
 
 ```bash
-PYTHONUNBUFFERED=1 uvicorn app.main:app --reload --log-level debug
+PYTHONUNBUFFERED=1 uvicorn graph_api.main:app --reload --log-level debug
 ```
 
 ### Usar debugger do VS Code
@@ -160,7 +151,7 @@ Crie `.vscode/launch.json`:
             "type": "python",
             "request": "launch",
             "module": "uvicorn",
-            "args": ["app.main:app", "--reload"],
+            "args": ["graph_api.main:app", "--reload"],
             "cwd": "${workspaceFolder}/api",
             "jinja": true,
             "justMyCode": true
@@ -182,13 +173,13 @@ Crie `.vscode/launch.json`:
 
 ## 🚨 Problemas Comuns
 
-### "ModuleNotFoundError: No module named 'app'"
+### "ModuleNotFoundError: No module named 'graph_api'"
 
 Certifique-se de que você rodou o comando de dentro de `api/`:
 
 ```bash
 cd api
-uvicorn app.main:app --reload
+uvicorn graph_api.main:app --reload
 ```
 
 ### "sqlite3.OperationalError: no such table: vertex"
@@ -196,7 +187,7 @@ uvicorn app.main:app --reload
 O banco não foi inicializado. FastAPI deve criar automaticamente na primeira requisição, mas se falhar:
 
 ```bash
-python -c "from app.database.db import create_db_and_tables; create_db_and_tables()"
+python -c "from graph_api.database import init_db; init_db()"
 ```
 
 ### Porta 8000 já em uso
@@ -204,7 +195,7 @@ python -c "from app.database.db import create_db_and_tables; create_db_and_table
 Rode em outra porta:
 
 ```bash
-uvicorn app.main:app --port 8001 --reload
+uvicorn graph_api.main:app --port 8001 --reload
 ```
 
 ## 📖 Referências
