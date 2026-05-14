@@ -23,14 +23,14 @@ cd api
 
 ### 2. Instalar dependências
 
-Como o projeto usa `uv`, ele já cria um ambiente virtual isolado. Use o comando abaixo para instalar as dependências:
+Como o projeto usa `uv`, ele já cria um ambiente virtual isolado. Use os comandos abaixo para instalar as dependências:
 
 ```bash
 # Instalação básica
-uv install -e .
+uv sync
 
 # Instalação com dependências de desenvolvimento
-uv install -e .[dev]
+uv sync --group dev
 ```
 
 ### 3. Rodar a API
